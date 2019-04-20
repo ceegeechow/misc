@@ -41,23 +41,23 @@ void draw() {
   intensity1 = float(tweet1[3])*5;
   intensity2 = float(tweet2[3])*5;
   intensity3 = float(tweet3[3])*5;
-  h1 = new Human(int(random(800)), int(random(horizon,500)), 0, intensity1);
-  h2 = new Human(int(random(800)), int(random(horizon,500)), 3, intensity2);
-  h3 = new Human(int(random(800)), int(random(horizon,500)), 5, intensity3);
+  h1 = new Human(int(random(700)), int(random(horizon,500)), 0, intensity1);
+  h2 = new Human(int(random(700)), int(random(horizon,500)), 2, intensity2);
+  h3 = new Human(int(random(700)), int(random(horizon,500)), 5, intensity3);
   humans.add(h1);
   humans.add(h2);
   humans.add(h3);
   
   //limit number of people in scene
-  //while (humans.size() > 30) {
-  //  humans.remove(0);
-  //}
+  while (humans.size() > 40) {
+    humans.remove(0);
+  }
   for (int j = 0; j < humans.size(); j++) {
     Human h = humans.get(j);
     if (h.delay <= 0) {
       humans.remove(h);
-      j++;
-      continue;
+      j--;
+      //continue;
     }
     else {
       h.walk();
@@ -75,7 +75,7 @@ class Human{
   float cor_x;
   float cor_y;
   float speed; //depends on emotion
-  int dir; //moving to the left or right, randomly chosen
+  int dir = 0; //moving to the left or right, randomly chosen
   float delay; //amount of time on screen, proportional to intensity of tweet
   
   Human(float cor_x, float cor_y, float speed, float delay) {
@@ -83,7 +83,7 @@ class Human{
     this.cor_y = cor_y;
     this.speed = speed;
     this.delay = delay;
-    this.dir = int(random(0,2));
+    //this.dir = int(random(0,2));
   }
   void walk(){
     if (dir == 0) {
