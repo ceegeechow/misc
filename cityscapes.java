@@ -15,8 +15,8 @@ ArrayList<Human> humans = new ArrayList<Human>();
 Human h1, h2, h3;
 
 void setup(){
-  size(800,800);
-  street = loadImage("street2.png");
+  size(1600,800);
+  street = loadImage("street3.jpg");
   human = loadImage("human.png");
   
   //load twitter data
@@ -41,9 +41,9 @@ void draw() {
   intensity1 = float(tweet1[3])*5;
   intensity2 = float(tweet2[3])*5;
   intensity3 = float(tweet3[3])*5;
-  h1 = new Human(int(random(700)), int(random(horizon,500)), 0, intensity1);
-  h2 = new Human(int(random(700)), int(random(horizon,500)), 2, intensity2);
-  h3 = new Human(int(random(700)), int(random(horizon,500)), 5, intensity3);
+  h1 = new Human(int(random(750,700+800)), int(random(horizon,500)), 0, intensity1);
+  h2 = new Human(int(random(750,700+800)), int(random(horizon,500)), 5, intensity2);
+  h3 = new Human(int(random(750,700+800)), int(random(horizon,500)), 10, intensity3);
   humans.add(h1);
   humans.add(h2);
   humans.add(h3);
@@ -69,7 +69,7 @@ void draw() {
     noLoop(); //kill when we run out of tweets
   }
   
-  //saveFrame("output/frame_#####.png");
+  //saveFrame("/Volumes/CACHOW/output2/frame_####.png");
 }
 class Human{
   float cor_x;
